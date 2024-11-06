@@ -3,6 +3,8 @@
 // use App\Http\Controllers\CarController;
 // use App\Http\Controllers\ShowCarController;
 // use App\Http\Controllers\ProductController;
+
+use App\Http\Controllers\MathController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,13 +20,16 @@ Route::get('/', function () {
 
 Route::view('/about','about')->name('about');
 
+Route::get('/sum/{a}/{b}', [MathController::class, 'sum'])
+->whereNumber(['a','b']);
+Route::get('/subtract/{a}/{b}', [MathController::class, 'subtract'])
+->whereNumber(['a','b']);
+
 
 // Route::apiResources([
 //     'cars'=> CarController::class,
 //     'product' => ProductController::class
 // ]);
-
-
 
 
 // Route::controller (  CarController::class)->group (function() {
