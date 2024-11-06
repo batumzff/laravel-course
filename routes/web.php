@@ -3,27 +3,33 @@
 // use App\Http\Controllers\CarController;
 // use App\Http\Controllers\ShowCarController;
 // use App\Http\Controllers\ProductController;
+// use App\Http\Controllers\MathController;
 
-use App\Http\Controllers\MathController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    // $aboutPageUrl = '/about';
-
-    // $aboutPageUrl = route('about');
-    // dd($aboutPageUrl);
-
-    // $productUrl = route('product.view', ['lang' => 'en', 'id' => 1]);
-    // dd($productUrl);
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::view('/about','about')->name('about');
 
-Route::get('/sum/{a}/{b}', [MathController::class, 'sum'])
-->whereNumber(['a','b']);
-Route::get('/subtract/{a}/{b}', [MathController::class, 'subtract'])
-->whereNumber(['a','b']);
+
+
+
+// Route::get('/', function () {
+//     $aboutPageUrl = '/about';
+
+//     $aboutPageUrl = route('about');
+//     dd($aboutPageUrl);
+
+//     $productUrl = route('product.view', ['lang' => 'en', 'id' => 1]);
+//     dd($productUrl);
+//     return view('welcome');
+// });
+
+// Route::get('/sum/{a}/{b}', [MathController::class, 'sum'])
+// ->whereNumber(['a','b']);
+// Route::get('/subtract/{a}/{b}', [MathController::class, 'subtract'])
+// ->whereNumber(['a','b']);
 
 
 // Route::apiResources([
