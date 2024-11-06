@@ -22,7 +22,8 @@ Route::view('/about','about')->name('about');
 //     Route::get( '/my-cars', 'myCars');
 //     });
 
-Route::get('/car',ShowCarController::class);
+Route::get('/car/invokable',CarController::class);
+Route::get('/car',[CarController::class, 'index']);
 
 
 

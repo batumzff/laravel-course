@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 class CarController extends Controller
 {
+
+    public function __invoke()
+    {
+        return '__invoke';
+    }
+
     public function index()
     {
         return 'Index method from CarControlller';
