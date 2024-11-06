@@ -13,3 +13,9 @@ comment
 This will be displayed
 
 @endif
+
+@foreach ($hobbies as $h )
+    {{ $loop->iteration }}
+    {{-- {{ dd($loop) }} --}}
+    {{-- {{ $h }} --}}
+@endforeach
