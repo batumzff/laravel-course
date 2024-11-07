@@ -36,3 +36,15 @@ This will be displayed
     >
     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente placeat, voluptates aliquid cupiditate corrupti earum sunt, eius est autem culpa molestias nulla suscipit. Amet maxime corrupti incidunt sed ratione consequatur!
 </div> --}}
+
+@include('shared.button', ['color' => 'yellow', 'text' => 'Submit'])
+
+@php
+    $cars = [1,2,3,4,5];
+@endphp
+
+@foreach ($cars as $car )
+    @include('car.view', ['car'=> $car])
+@endforeach
+
+@each('car.view', $cars , 'car', 'car.empty' )
