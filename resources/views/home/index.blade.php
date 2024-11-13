@@ -63,11 +63,11 @@ use Illuminate\Support\Str;
 
 @use('Illuminate\Support\Str') --}}
 
-@include('shared.alert', [
+{{-- @include('shared.alert', [
     'message' => 'Your account was created',
     'color' => 'green'
 ])
 @include('shared.alert', [
     'message' => 'different',
     'color' => 'red'
-])
+]) --}}
