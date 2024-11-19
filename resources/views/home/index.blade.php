@@ -4,6 +4,8 @@
 
 
 @section('content')
+
+  
  <!-- Home Slider -->
     <section class="hero-slider">
       <!-- Carousel wrapper -->
