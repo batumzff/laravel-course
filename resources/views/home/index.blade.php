@@ -4,9 +4,13 @@
 
 
 @section('content')
-
-  <x-card>
-    <x-slot:title>Card title 1</x-slot:title>
+  @php
+    $color = 'red';
+    $bgColor = 'blue';
+  @endphp
+  <x-card :$color :$bgColor class="card-rounded">
+  {{-- <x-card :color="$color" :bgColor="$bgColor"> --}}
+    <x-slot:title class="card-header-blue">Card title 1</x-slot:title>
     Card Content 1
     <x-slot:footer>Card footer 1</x-slot:footer>
   </x-card>
