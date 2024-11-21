@@ -1,9 +1,4 @@
-@extends('layouts.app')
-
-@section('title', 'Home PAge')
-
-
-@section('content')
+<x-app-layout title="Home Page">
   @php
     $color = 'red';
     $bgColor = 'blue';
@@ -671,9 +666,8 @@
       </section>
       <!--/ New Cars -->
     </main>
-    @section('footerLinks')
-        @parent
-        <a href="#">Link 3</a>
-        <a href="#">Link 4</a>
-    @endsection
-@endsection
+    <x-slot:footerLinks>
+      <a href="#">Link 3</a>
+      <a href="#">Link 4</a>
+    </x-slot:footerLinks>
+</x-app-layout>
