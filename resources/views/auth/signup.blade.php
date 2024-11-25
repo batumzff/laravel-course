@@ -1,8 +1,4 @@
-@extends('layouts.clean', ['cssClass' => 'page-signup'])
-
-@section('title', 'Signup')
-
-@section('childContent')
+<x-base-layout title="Signup" bodyClass="page-signup">
 <main>
       <div class="container-small page-login">
         <div class="flex" style="gap: 5rem">
@@ -37,18 +33,9 @@
               <button class="w-full btn btn-primary btn-login">Register</button>
 
               <div class="grid grid-cols-2 gap-1 social-auth-buttons">
-                <button
-                  class="flex items-center justify-center gap-1 btn btn-default"
-                >
-                  <img src="/img/google.png" alt="" style="width: 20px" />
-                  Google
-                </button>
-                <button
-                  class="flex items-center justify-center gap-1 btn btn-default"
-                >
-                  <img src="/img/facebook.png" alt="" style="width: 20px" />
-                  Facebook
-                </button>
+                <x-google-button />
+                <x-fb-button />
+                
               </div>
               <div class="login-text-dont-have-account">
                 Already have an account? -
@@ -62,6 +49,4 @@
         </div>
       </div>
     </main>
-    
-@endsection
-    
+</x-base-layout>
