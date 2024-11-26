@@ -1,14 +1,5 @@
-<x-base-layout title="Login" bodyClass="page-login">
- <main>
-      <div class="container-small page-login">
-        <div class="flex" style="gap: 5rem">
-          <div class="auth-page-form">
-            <div class="text-center">
-              <a href="/">
-                <img src="/img/logoipsum-265.svg" alt="" />
-              </a>
-            </div>
-            <h1 class="auth-page-title">Login</h1>
+<x-guest-layout title="Login" bodyClass="page-login">
+  <h1 class="auth-page-title">Login</h1>
 
             <form action="" method="post">
               <div class="form-group">
@@ -24,21 +15,11 @@
               </div>
 
               <button class="w-full btn btn-primary btn-login">Login</button>
-
-              <div class="grid grid-cols-2 gap-1 social-auth-buttons">
-                <x-google-button />
-                <x-fb-button />
-              </div>
-              <div class="login-text-dont-have-account">
-                Don't have an account? -
+              </form>
+              
+              <x-slot:footerLink>
+              Don't have an account? -
                 <a href="/signup.html"> Click here to create one</a>
-              </div>
-            </form>
-          </div>
-          <div class="auth-page-image">
-            <img src="/img/car-png-39071.png" alt="" class="img-responsive" />
-          </div>
-        </div>
-      </div>
-    </main>
-</x-base-layout>
+              </x-slot:footerLink>
+            
+</x-guest-layout>
