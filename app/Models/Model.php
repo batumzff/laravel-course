@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model as EloquentModel;
 class Model extends EloquentModel
 {
     use HasFactory;
+
+    public $timesstamps = false;
 }
