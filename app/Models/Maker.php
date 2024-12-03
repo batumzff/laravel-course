@@ -10,4 +10,6 @@ class Maker extends Model
     use HasFactory;
 
     public $timesstamps = false;
+
+    protected $fillable = ['name'];
 }

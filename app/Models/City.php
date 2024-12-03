@@ -10,4 +10,6 @@ class City extends Model
     use HasFactory;
 
     public $timesstamps = false;
+
+    protected $fillable = ['name', 'state_id'];
 }

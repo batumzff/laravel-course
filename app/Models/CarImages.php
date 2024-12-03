@@ -10,4 +10,6 @@ class CarImages extends Model
     use HasFactory;
 
     public $timesstamps = false;
+
+    protected $fillable = ['image_path', 'position'];
 }
