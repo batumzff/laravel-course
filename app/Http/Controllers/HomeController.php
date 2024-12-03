@@ -65,9 +65,29 @@ class HomeController extends Controller
         // $car2->fill($carData);
         // $car2->save();
 
-        // Approach 3
-        $car3 = new Car($carData);
-        $car3->save();
+        // // Approach 3
+        // $car3 = new Car($carData);
+        // $car3->save();
+
+        // $car = Car::find(1);
+        // $car->price = 1000;
+        // $car->save();
+
+        Car::updateOrCreate(
+            ['vin' => '999', 'price' =>20000],
+            ['price' => 25000]
+        );
+
+        // $car = Car::find(1);
+        // $car->delete();
+
+        // Car::destroy(2,3);
+
+        // Car::where('published_at', null)
+        //     ->where('user_id', 1)
+        //     ->delete();
+
+        // Car::truncate();
 
 
         return view('home.index');
