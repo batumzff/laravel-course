@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Car;
 use App\Models\CarFeatures;
 use App\Models\CarImage;
+use App\Models\CarType;
 use App\Models\FuelType;
 use App\Models\Maker;
 use Illuminate\Http\Request;
@@ -13,6 +14,24 @@ class HomeController extends Controller
 {
     public function index()
     {
+        $car = Car::find(1);
+        $carType = CarType::where('name', 'Sedan')->first();
+        // $car->car_type_id = $carType->id;
+        // $car->save(); 
+
+        $car->carType()->associate($carType);
+        $car->save();
+
+        // $car = Car::find(1);
+
+        // dd($car->carType);
+
+        // $carType = CarType::where('name', 'Hatchback')->first();
+        // $cars = $carType->cars;
+        // $cars = Car::whereBelongsTo($carType)->get();
+
+        // dd($cars);
+
         // $car = Car::find(1);
 
         // dd($car->features, $car->primaryImage);
@@ -43,7 +62,7 @@ class HomeController extends Controller
 
         // $car->features()->save($carFeatures);
 
-        $car = Car::find(1);
+        // $car = Car::find(1);
 
         // // Create new image
         // $image = new CarImage(['image_path' => 'something', 'position' => 2]);
