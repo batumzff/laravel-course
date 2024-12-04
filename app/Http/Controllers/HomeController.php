@@ -8,19 +8,20 @@ use App\Models\CarImage;
 use App\Models\CarType;
 use App\Models\FuelType;
 use App\Models\Maker;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $car = Car::find(1);
-        $carType = CarType::where('name', 'Sedan')->first();
+        // $car = Car::find(1);
+        // $carType = CarType::where('name', 'Sedan')->first();
         // $car->car_type_id = $carType->id;
         // $car->save(); 
 
-        $car->carType()->associate($carType);
-        $car->save();
+        // $car->carType()->associate($carType);
+        // $car->save();
 
         // $car = Car::find(1);
 
@@ -172,6 +173,24 @@ class HomeController extends Controller
         //     ->delete();
 
         // Car::truncate();
+
+
+        // $car = Car::find(1);
+        // dd($car->favouredUsers);
+
+        // $user = User::find(1);
+        // dd($user->favouriteCars);
+
+        $user = User::find(1);
+        // $user->favouriteCars()->attach([1,2]);
+        // $user->favouriteCars()->sync([3]);
+
+        $user->favouriteCars()->detach([1, 2]);
+
+
+
+        
+        
 
 
         return view('home.index');
