@@ -3,12 +3,77 @@
 namespace App\Http\Controllers;
 
 use App\Models\Car;
+use App\Models\CarFeatures;
+use App\Models\CarImage;
+use App\Models\FuelType;
+use App\Models\Maker;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index()
     {
+        // $car = Car::find(1);
+
+        // dd($car->features, $car->primaryImage);
+
+        // $car->features->abs = 0;
+        // $car->features->save();
+
+        // $car->features->update(['abs' => 0]);
+
+        // $car->primaryImage->delete();
+
+        // $car = Car::find(2);
+
+        // $carFeatures = new CarFeatures ([
+        //     'abs' => false,
+        //     'air_conditioning' => false,
+        //     'power_windows' => false,
+        //     'power_door_locks' => false,
+        //     'cruise control' => false,
+        //     'bluetooth_connectivity' => false,
+        //     'remote_start' => false,
+        //     'gps navigation' => false,
+        //     'heated seats' => false,
+        //     'climate control' => false,
+        //     'rear parking_sensors' => false,
+        //     'leather_seats' => false,
+        // ]);
+
+        // $car->features()->save($carFeatures);
+
+        $car = Car::find(1);
+
+        // // Create new image
+        // $image = new CarImage(['image_path' => 'something', 'position' => 2]);
+        // $car->images()->save($image);
+
+        // $car->images()->create(['image_path' => 'something', 'position' => 2]);
+
+        // $car->images()->saveMany ( [
+        //     new CarImage(['image_path' => 'something', 'position' => 4]),
+        //     new CarImage(['image_path' => 'something', 'position' => 5]),
+        //     ]); 
+
+        // $car->images ()->createMany ( [
+        //     ['image_path' => 'something', 'position' => 6],
+        //     ['image_path' => 'something', 'position' => 7],
+        //     ]);    
+
+        // $cars = Car::where('price', '>', 20000)->get();
+        // dump($cars);
+
+        // $maker = Maker::where('name', 'Toyota')->first();
+        // dump($maker);
+
+        // FuelType::create(['name' => 'Electric']);
+
+        // Car::where('id', 1)->update(['price' => 15000]);
+
+        // Car::where('year', '<', 2020)->delete();
+
+
         // // Seleect All Cars
         // $cars = Car::get();
 
@@ -40,22 +105,22 @@ class HomeController extends Controller
         // $car->published_at = now();
         // $car->save();
 
-        $carData = [
-            'maker_id' => 1,
-            'model_id' => 1,
-            'year' => 2024,
-            'price' => 20000,
-            'vin' => '999',
-            'mileage' => 5000,
-            'car_type_id' => 1,
-            'fuel_type_id' => 1,
-            'user_id' => 1,
-            'city_id' => 1,
-            'address' => 'Something',
-            'phone' => '999',
-            'description' => null,
-            'published_at' => now(),
-        ];
+        // $carData = [
+        //     'maker_id' => 1,
+        //     'model_id' => 1,
+        //     'year' => 2024,
+        //     'price' => 20000,
+        //     'vin' => '999',
+        //     'mileage' => 5000,
+        //     'car_type_id' => 1,
+        //     'fuel_type_id' => 1,
+        //     'user_id' => 1,
+        //     'city_id' => 1,
+        //     'address' => 'Something',
+        //     'phone' => '999',
+        //     'description' => null,
+        //     'published_at' => now(),
+        // ];
 
         // // Approach 1
         // $car = Car::create($carData);
@@ -73,10 +138,10 @@ class HomeController extends Controller
         // $car->price = 1000;
         // $car->save();
 
-        Car::updateOrCreate(
-            ['vin' => '999', 'price' =>20000],
-            ['price' => 25000]
-        );
+        // Car::updateOrCreate(
+        //     ['vin' => '999', 'price' =>20000],
+        //     ['price' => 25000]
+        // );
 
         // $car = Car::find(1);
         // $car->delete();
