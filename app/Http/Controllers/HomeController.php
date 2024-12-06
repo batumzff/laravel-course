@@ -15,6 +15,12 @@ class HomeController extends Controller
 {
     public function index()
     {
+        $maker = Maker::factory()->count(10)->create();
+        dd($maker);
+
+
+
+
         // $car = Car::find(1);
         // $carType = CarType::where('name', 'Sedan')->first();
         // $car->car_type_id = $carType->id;
@@ -181,17 +187,11 @@ class HomeController extends Controller
         // $user = User::find(1);
         // dd($user->favouriteCars);
 
-        $user = User::find(1);
+        // $user = User::find(1);
         // $user->favouriteCars()->attach([1,2]);
         // $user->favouriteCars()->sync([3]);
 
-        $user->favouriteCars()->detach([1, 2]);
-
-
-
-        
-        
-
+        // $user->favouriteCars()->detach([1, 2]);
 
         return view('home.index');
     }
