@@ -9,17 +9,33 @@ use App\Models\CarType;
 use App\Models\FuelType;
 use App\Models\Maker;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $maker = Maker::factory()->count(10)->create();
-        dd($maker);
+        // $maker = Maker::factory()->count(10)->create();
+        // dd($maker);
 
-
-
+        User::factory()
+            ->count(10)
+            // ->sequence(
+            //     ['name' => 'Zura'],
+            //     ['name' => 'John'],
+            // )
+            ->sequence(fn (Sequence $sequence) => ['name' => 'Name ' . $sequence->index])
+            ->create();
+        
+        
+        
+        // User::factory()
+        //     ->count(10)
+        //     ->state([
+        //         'name' => 'Zura'
+        //     ])
+        //     ->create();
 
         // $car = Car::find(1);
         // $carType = CarType::where('name', 'Sedan')->first();
