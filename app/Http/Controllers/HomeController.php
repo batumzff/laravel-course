@@ -8,6 +8,7 @@ use App\Models\CarImage;
 use App\Models\CarType;
 use App\Models\FuelType;
 use App\Models\Maker;
+use App\Models\Model;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Http\Request;
@@ -26,6 +27,32 @@ class HomeController extends Controller
             //     ['name' => 'John'],
             // )
             ->sequence(fn (Sequence $sequence) => ['name' => 'Name ' . $sequence->index])
+            ->create();
+
+        User::factory()
+            ->count(10)
+            // ->unverified()
+            ->trashed() 
+            ->create(); 
+            
+        User::factory()
+            ->afterCreating(function (User $user) {
+                dump($user);
+            })
+            ->create();
+
+        Maker::factory()
+            ->count(1)
+            ->hasModels(1, function(array $attributes, Maker $maker) {
+                return [];
+            })
+            ->create();
+
+        $maker = Maker::factory()->create();
+
+        Model::factory()
+            ->count(5)
+            ->forMaker(['name' => 'Lexus'])
             ->create();
         
         
