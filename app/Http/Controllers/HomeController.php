@@ -54,6 +54,11 @@ class HomeController extends Controller
             ->count(5)
             ->forMaker(['name' => 'Lexus'])
             ->create();
+
+
+        User::factory()
+            ->has(Car::factory()->count(5), 'favouriteCars')
+            ->create();
         
         
         
