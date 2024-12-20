@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Car;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,10 @@ class CarImageFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'iamge_path' => fake()->imageUrl(),
+            'position' => function(array $attiributes) {
+                return Car::find($attiributes['car_id'])->images()->count() + 1;
+            }
         ];
     }
 }
